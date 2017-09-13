@@ -1,0 +1,34 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nodehttp1
+  name: nodehttp1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: nodehttp1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: nodehttp1
+    spec:
+      containers:
+      - image: nodehttp1:dev-latest
+        name: nodehttp1
+        ports:
+        - containerPort: 8081
+        resources: {}
+        imagePullPolicy: Never
+        volumeMounts:
+        - mountPath: /usr/src/app/website/
+          name: nodehttp1-volume
+      volumes:
+      - name: nodehttp1-volume
+        hostPath:
+          path: /Users/.minikube-mounts/nodehttp1
+status: {}
