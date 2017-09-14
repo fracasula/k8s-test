@@ -3,15 +3,15 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    run: nodehttp1
-  name: nodehttp1
+    run: nodehttp
+  name: nodehttp
 spec:
   ports:
   - port: 8081
     protocol: TCP
     targetPort: 8081
   selector:
-    run: nodehttp1
+    run: nodehttp
   type: NodePort
 status:
   loadBalancer: {}

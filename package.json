@@ -1,0 +1,9 @@
+{
+  "name": "k8s-test",
+  "version": "1.0.0",
+  "author": "Francesco Casula <fra.casula@gmail.com>",
+  "private": false,
+  "dependencies": {
+    "mongodb": "^2.2.31"
+  }
+}
