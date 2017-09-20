@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nodeserver
+  name: nodeserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: nodeserver
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: nodeserver
+    spec:
+      containers:
+      - image: nodeserver:dev-latest
+        name: nodeserver
+        ports:
+        - containerPort: 1337
+        resources: {}
+        imagePullPolicy: Never
+status: {}
