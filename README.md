@@ -9,6 +9,17 @@ Each pod contains a container with a Node.js application:
   * `/connect.html` => you can use it to make a client connect to
     the server living in the other pod (**nodeserver**) via DNS service discovery
 
+## Steps to test this project
+
+1. `make mount`
+2. `make create`
+3. Get the **nodeclient** HTTP server address by doing `minikube service nodeclient --url`
+4. Call the **nodeclient** HTTP server homepage (see bullet 3 above, e.g. `http://192.168.99.100:31144`)
+   to test your mounted volume
+   * you can make some changes to the `website/index.html` file and reload the page to see if it works
+5. Call the **nodeclient** `/connect.html` endpoint to test if the DNS service discovery works
+   (e.g. `http://192.168.99.100:31144/connect.html`)
+
 ## Use Makefile to create deployments and services and mounting volumes
 ```bash
 make create
