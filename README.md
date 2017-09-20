@@ -9,7 +9,7 @@ Each pod contains a container with a Node.js application:
   * `/connect.html` => you can use it to make a client connect to
     the server living in the other pod (**nodeserver**) via DNS service discovery
 
-## Use Makefile to create deployment and service and mounting volumes
+## Use Makefile to create deployments and services and mounting volumes
 ```bash
 make create
 make local
