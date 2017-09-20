@@ -5,6 +5,6 @@ RUN mkdir /usr/src/app
 
 WORKDIR /usr/src/app
 
-COPY server/server.js .
+COPY nodeserver/server.js .
 
 CMD node server.js

@@ -6,7 +6,7 @@ RUN mkdir /usr/src/app && \
 
 WORKDIR /usr/src/app
 
-COPY client/client.js .
+COPY nodeclient/client.js .
 COPY website/index.html ./website/
 
 CMD node client.js

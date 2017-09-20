@@ -17,26 +17,26 @@ make mount
 make delete
 ```
 
-## Get the URL to access the nodehttp service
-`minikube service nodehttp --url`
+## Get the URL to access the nodeclient service
+`minikube service nodeclient --url`
 
 ## Access the logs
-`kubectl logs POD_NAME -c nodehttp`
+`kubectl logs POD_NAME -c nodeclient`
 
 *To get the POD_NAME do* `kubectl get pod`.
 
 ## Getting inside the container
-`kubectl exec -it POD_NAME -c nodehttp -- /bin/bash`
+`kubectl exec -it POD_NAME -c nodeclient -- /bin/bash`
 
 *To get the POD_NAME do* `kubectl get pod`.
 
 ## Alternatively here are some commands to handle deployment/svc one by one
 
-* Delete any previous nodehttp deployment and service
-  * `kubectl delete deployment,svc nodehttp`
-* Create the nodehttp deployment and specify which port you want to expose
+* Delete any previous nodeclient deployment and service
+  * `kubectl delete deployment,svc nodeclient`
+* Create the nodeclient deployment and specify which port you want to expose
   * Add `--dry-run -o yaml > deployment.yaml` to create conf file
-  * `kubectl run nodehttp --image=nodehttp:dev-latest --port=8081`
+  * `kubectl run nodeclient --image=nodeclient:dev-latest --port=8081`
 * Expose the previously created deployment
   * Add `--dry-run -o yaml > svc.yaml` to create conf file
-  * `kubectl expose deployment nodehttp --type=NodePort`
+  * `kubectl expose deployment nodeclient --type=NodePort`

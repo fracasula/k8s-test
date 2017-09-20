@@ -1,18 +1,18 @@
-.PHONY: local create delete
+.PHONY: local create delete mount
 CLIENT=nodeclient
 SERVER=nodeserver
 
 local:
 	@eval $$(minikube docker-env) ;\
-	docker image build -t $(CLIENT):dev-latest -f ./client/Dockerfile .
-	docker image build -t $(SERVER):dev-latest -f ./server/Dockerfile .
+	docker image build -t $(CLIENT):dev-latest -f ./nodeclient/Dockerfile .
+	docker image build -t $(SERVER):dev-latest -f ./nodeserver/Dockerfile .
 	kubectl set image -f ./deploy/nodeclient_deployment.yaml $(CLIENT)=$(CLIENT):dev-latest
 	kubectl set image -f ./deploy/nodeserver_deployment.yaml $(SERVER)=$(SERVER):dev-latest
 
 create:
 	@eval $$(minikube docker-env) ;\
-	docker image build -t $(CLIENT):dev-latest -f ./client/Dockerfile .
-	docker image build -t $(SERVER):dev-latest -f ./server/Dockerfile .
+	docker image build -t $(CLIENT):dev-latest -f ./nodeclient/Dockerfile .
+	docker image build -t $(SERVER):dev-latest -f ./nodeserver/Dockerfile .
 	kubectl create -f ./deploy
 
 delete:
