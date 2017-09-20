@@ -3,24 +3,25 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    run: mongo
-  name: mongo
+    run: nodeserver
+  name: nodeserver
 spec:
   replicas: 1
   selector:
     matchLabels:
-      run: mongo
+      run: nodeserver
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        run: mongo
+        run: nodeserver
     spec:
       containers:
-      - image: mongo:3.4
-        name: mongo
+      - image: nodeserver:dev-latest
+        name: nodeserver
         ports:
-        - containerPort: 27017
+        - containerPort: 1337
         resources: {}
+        imagePullPolicy: Never
 status: {}

@@ -3,32 +3,32 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    run: nodehttp
-  name: nodehttp
+    run: nodeclient
+  name: nodeclient
 spec:
   replicas: 1
   selector:
     matchLabels:
-      run: nodehttp
+      run: nodeclient
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        run: nodehttp
+        run: nodeclient
     spec:
       containers:
-      - image: nodehttp:dev-latest
-        name: nodehttp
+      - image: nodeclient:dev-latest
+        name: nodeclient
         ports:
         - containerPort: 8081
         resources: {}
         imagePullPolicy: Never
         volumeMounts:
         - mountPath: /usr/src/app/website/
-          name: nodehttp-volume
+          name: nodeclient-volume
       volumes:
-      - name: nodehttp-volume
+      - name: nodeclient-volume
         hostPath:
-          path: /Users/.minikube-mounts/nodehttp
+          path: /Users/.minikube-mounts/nodeclient
 status: {}

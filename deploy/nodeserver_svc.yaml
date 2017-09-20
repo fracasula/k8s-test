@@ -3,15 +3,15 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    run: mongo
-  name: mongo
+    run: nodeserver
+  name: nodeserver
 spec:
   ports:
-  - port: 27017
+  - port: 1337
     protocol: TCP
-    targetPort: 27017
+    targetPort: 1337
   selector:
-    run: mongo
+    run: nodeserver
   type: NodePort
 status:
   loadBalancer: {}
