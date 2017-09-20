@@ -2,10 +2,12 @@
 
 I used this project to setup a local kubernetes cluster with two pods.
 Each pod contains a container with a Node.js application:
+
+* **nodeserver** which exposes a simple server listening on the 1337
 * **nodeclient** which exposes an HTTP server on the 8081 with 2 endpoints:
   * `/` => you can use it to get the homepage (to test mounted volumes, see `make mount`)
   * `/connect.html` => you can use it to make a client connect to
-    the server living in the other pod (nodeserver) via DNS service discovery
+    the server living in the other pod (**nodeserver**) via DNS service discovery
 
 ## Use Makefile to create deployment and service and mounting volumes
 ```bash
